@@ -67,4 +67,9 @@ public class player {
         System.out.println("Age:"+getAge());
         System.out.println("Email: "+getEmail());
     }
+    public void jointeam(player pl){
+        Join j=new Join();
+        j.jointeam(pl);
+    }
+
 }
