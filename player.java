@@ -1,12 +1,16 @@
+import sun.security.util.Password;
+
+import java.util.Scanner;
+
 public class player {
-    private String fristName,lastName,Email,Password,ConfirmPassword;
+    Scanner scan=new Scanner(System.in);
+    private String fristName,lastName,Email,Password;
     private int age;
     public player(){
 
     }
     public player(String fristName,String lastName,String Email,String Password,String conPass,int age){
         this.Password=Password;
-        this.ConfirmPassword=conPass;
         this.age=age;
         this.fristName=fristName;
         this.lastName=lastName;
@@ -36,17 +40,6 @@ public class player {
     public void setPassword(String password) {
         Password = password;
     }
-
-    public void setConfirmPassword(String confirmPassword) {
-        ConfirmPassword = confirmPassword;
-    }
-    public void confirmPass(){
-        if(this.Password !=this.ConfirmPassword){
-            System.out.println("there is no matching between password and confirming password");
-            System.exit(1);
-        }
-    }
-
     public String getEmail() {
         return Email;
     }
@@ -71,5 +64,31 @@ public class player {
         Join j=new Join();
         j.jointeam(pl);
     }
+    public void addPlayer(player p){
+        System.out.println("Enter your first name:");
+        String name=scan.nextLine();
+        p.fristName=name;
+        System.out.println("Enter yor last name:");
+        name= scan.nextLine();
+        p.lastName=name;
+        System.out.println("Enter your Email:");
+        name=scan.nextLine();
+        p.Email=name;
+        System.out.println("Enter your password");
+       String pass= scan.nextLine().trim();
+        p.Password=pass;
+        System.out.println("Enter your aga:");
+        int a;
+        a=scan.nextInt();
+        p.age=a;
+    }
+    public static void main(String[]args){
+        player p=new player();
+        p.addPlayer(p);
+        p.display();
+    }
 
-}
+
+    }
+
+
