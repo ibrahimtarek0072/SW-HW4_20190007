@@ -1,12 +1,16 @@
+import java.math.BigDecimal;
+import java.util.Scanner;
 public class Playground_owner {
+    Scanner scan=new Scanner(System.in);
     private String Fname,Lname,Email,paasword,Confirmpass,location;
-    private int age,nationlID;
+    private int age;
+    private BigDecimal nationlID;
     public Playground_info p=new Playground_info();
 
     public void setAge(int age) {
         this.age = age;
     }
-    public Playground_owner(String name,String email,String location,int age,String phone,int nationalID,String lname,String pass,String conpass){
+    public Playground_owner(String name,String email,String location,int age,String phone,BigDecimal nationalID,String lname,String pass,String conpass){
         this.age=age;
         this.Email=email;
         this.location=location;
@@ -53,7 +57,7 @@ public class Playground_owner {
     }
 
 
-    public void setNationlID(int nationlID) {
+    public void setNationlID(BigDecimal nationlID) {
         this.nationlID = nationlID;
     }
 
@@ -77,16 +81,41 @@ public class Playground_owner {
         return Lname;
     }
 
-    public int getNationlID() {
+    public BigDecimal getNationlID() {
         return nationlID;
     }
       public void check(){
         if(this.paasword!=this.Confirmpass){
-            System.out.println("password don't much");
+            System.out.println("password don't match");
             System.exit(1);
         }
      }
-
+    public void addOwner(Playground_owner p){
+        System.out.println("Enter your first name:");
+        String name=scan.nextLine();
+        p.Fname=name;
+        System.out.println("Enter yor last name:");
+        name= scan.nextLine();
+        p.Lname=name;
+        System.out.println("Enter your Email:");
+        name=scan.nextLine();
+        p.Email=name;
+        System.out.println("Enter your password");
+        String pass= scan.nextLine().trim();
+        p.paasword=pass;
+        System.out.println("Enter your location:");
+        name=scan.nextLine();
+        p.location=name;
+        System.out.println("Enter your aga:");
+        int a;
+        a=scan.nextInt();
+        p.age=a;
+        System.out.println("Enter your National ID");
+            BigDecimal n;
+            n=scan.nextBigDecimal();
+            p.nationlID=n;
+        System.out.println("Thanks for using this app");
+    }
     public void display(){
         System.out.println("your info is:");
         System.out.println("Frist Name:"+getFname());
@@ -101,19 +130,11 @@ public class Playground_owner {
         this.p.addPlayground(o);
 
     }
-    public void displayPlaygrounds(){
-        this.p.displayplaygrounds();
+    public static void main(String[]args){
+        Playground_owner p=new Playground_owner();
+        p.addOwner(p);
+        p.display();
     }
-    public static void main(String []args){
-        Playground_owner o=new Playground_owner();
-        o.setFName("ibrahim");
-        o.setLname("tarek");
-        o.setAge(20);
-        o.setEmail("ibrahimtarek00072@gmail.com");
-        o.setLocation("cairo");
-        o.setPaasword("01146520613");
-        o.setConfirmpass("01146520613");
-        o.addplayground(o);
-        o.displayPlaygrounds();
-    }
+
+
 }
