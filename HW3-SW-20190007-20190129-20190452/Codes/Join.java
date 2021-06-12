@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-
+// in the whole code we didn't use agrs or inherit because the whole code in the same package
+// @ Bassem Yasser ده الجزء التاني بتاعك ياعلق بردوا
 public class Join {
     private double BookingID;
      public ArrayList<player> team=new ArrayList<player>();
     public String pPosition;
     Scanner scan=new Scanner(System.in);
-
+    // Setters
     public void setBookingID(double bookingID) {
         BookingID = bookingID;
     }
@@ -15,6 +16,8 @@ public class Join {
         this.pPosition = pPosition;
     }
 
+
+    //getters
     public double getBookingID() {
         return BookingID;
     }
@@ -22,6 +25,8 @@ public class Join {
     public String getpPosition() {
         return pPosition;
     }
+
+    // this is the main function that will be used in the GoFo class it takes variable it's type is player
 
     public void jointeam(player pl){
         Join j=new Join();
