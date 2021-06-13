@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
+
+//@Mohamed Adel Abdallah
 public class Booking {
     Scanner scan=new Scanner(System.in);
     private player Player;
@@ -8,11 +10,13 @@ public class Booking {
     private float price;
     private int Pnum;
     private double BookingID;
+
+    //setters
     public void setPlayer(player player) {
         Player = player;
     }
-
     public void setEwallet(String ewallet) {
+        //check if the Ewallet is a ISP or not
         if(ewallet!="vodafone"||ewallet!="orange"||ewallet!="etisalate"){
             System.out.println("Invalid ISP");
             return;
@@ -21,12 +25,12 @@ public class Booking {
         Ewallet = ewallet;
         }
     }
-
     public void setEwalletBandwidth(String ewalletBandwidth) {
         System.out.println("Enter the charge Number");
         String c;
         Scanner scan=new Scanner(System.in);
         c=scan.nextLine();
+        //check if the serial number of the card is true يعني من الاخر بنشوف هو الرقم مكون من 15 رقم زي كارت الشحن ولا لا
         if(c.length()!=15){
             System.out.println("Invalid Number");
             return;
@@ -36,6 +40,7 @@ public class Booking {
         }
 
     }
+    //modify Ewallet Bandwidth
     public void modifyEWB(String ewalletBandwidth){
         System.out.println("Enter the charge Number");
         String c;
@@ -50,7 +55,7 @@ public class Booking {
         }
 
     }
-
+     //setters and getters
     public void setPnum(int pnum) {
         Pnum = pnum;
     }
@@ -70,6 +75,7 @@ public class Booking {
     public float getPrice() {
         return price;
     }
+    //Pnum is the number of the player that can play in the playground
 
     public int getPnum() {
         return Pnum;
@@ -82,6 +88,7 @@ public class Booking {
     public double getBookingID() {
         return BookingID;
     }
+    // the booking main function that will be used in GoFo class
 
     public void addBooking(player pl){
         Booking b=new Booking();
@@ -103,8 +110,10 @@ public class Booking {
         b.setPrice(price);
         System.out.println("============================");
         for(int i=0;i<p.playgrounds.size();i++){
+            //check if the price and location are equal to the price and the location of the playgrounds that store in the data base ده لو عاملين داتا بيز يعني
             if(b.getPrice()==p.getPric() &&b.getLocation()==p.getLocation() &&b.getPnum()==p.getPlayer_num()){
                 p.display();
+                //using math.random to crate a random unique ID for the booking
                 double ID=Math.random();
                 System.out.println("Booking ID: "+ID);
                 b.setBookingID(ID);
