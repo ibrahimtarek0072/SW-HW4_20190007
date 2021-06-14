@@ -1,33 +1,47 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-// in the whole code we didn't use agrs or inherit because the whole code in the same package
-// @ Bassem Yasser ده الجزء التاني بتاعك ياعلق بردوا
+
+/**
+ * this is the join class that will be used to join team
+ * @author Bassem Yasser Taha
+ */
 public class Join {
     private double BookingID;
      public ArrayList<player> team=new ArrayList<player>();
     public String pPosition;
     Scanner scan=new Scanner(System.in);
-    // Setters
     public void setBookingID(double bookingID) {
         BookingID = bookingID;
     }
 
+    /**
+     * set function to set the position of the player
+     * @param pPosition
+     */
     public void setpPosition(String pPosition) {
         this.pPosition = pPosition;
     }
 
-
-    //getters
+    /**
+     * get function to get the booking ID
+     * @return BookinID
+     */
     public double getBookingID() {
         return BookingID;
     }
 
+    /**
+     * get function to get the player position
+     * @return pPosition
+     */
     public String getpPosition() {
         return pPosition;
     }
 
-    // this is the main function that will be used in the GoFo class it takes variable it's type is player
-
+    /**
+     * that main function that will be use in GoFo class
+     * @param pl
+     */
     public void jointeam(player pl){
         Join j=new Join();
         Booking b=new Booking();
