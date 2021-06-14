@@ -2,7 +2,10 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.List;
 
-//@Mohamed Adel Abdallah
+/**
+ * the booking class that used to book the playground
+ * @author Mohamed Adel Abdallah
+ */
 public class Booking {
     Scanner scan=new Scanner(System.in);
     private player Player;
@@ -11,12 +14,20 @@ public class Booking {
     private int Pnum;
     private double BookingID;
 
-    //setters
+    /**
+     * set function to set the player
+     * @param player
+     */
     public void setPlayer(player player) {
         Player = player;
     }
+
+    /**
+     * set function to set the Ewallet
+     * in this function we will check if the Ewallet is an ISP or not
+     * @param ewallet
+     */
     public void setEwallet(String ewallet) {
-        //check if the Ewallet is a ISP or not
         if(ewallet!="vodafone"||ewallet!="orange"||ewallet!="etisalate"){
             System.out.println("Invalid ISP");
             return;
@@ -25,12 +36,16 @@ public class Booking {
         Ewallet = ewallet;
         }
     }
+
+    /**
+     * set function to hold the bandwidth in Ewallet
+     * @param ewalletBandwidth
+     */
     public void setEwalletBandwidth(String ewalletBandwidth) {
         System.out.println("Enter the charge Number");
         String c;
         Scanner scan=new Scanner(System.in);
         c=scan.nextLine();
-        //check if the serial number of the card is true يعني من الاخر بنشوف هو الرقم مكون من 15 رقم زي كارت الشحن ولا لا
         if(c.length()!=15){
             System.out.println("Invalid Number");
             return;
@@ -40,7 +55,11 @@ public class Booking {
         }
 
     }
-    //modify Ewallet Bandwidth
+
+    /**
+     * function to modify Ewallet bandwidth by charging
+     * @param ewalletBandwidth
+     */
     public void modifyEWB(String ewalletBandwidth){
         System.out.println("Enter the charge Number");
         String c;
@@ -55,40 +74,75 @@ public class Booking {
         }
 
     }
-     //setters and getters
+
+    /**
+     * set function to set the player number
+     * @param pnum
+     */
     public void setPnum(int pnum) {
         Pnum = pnum;
     }
 
+    /**
+     * set method to set the location
+     * @param location
+     */
     public void setLocation(String location) {
         this.location = location;
     }
 
+    /**
+     * set function to set the price
+     * @param price
+     */
     public void setPrice(float price) {
         this.price = price;
     }
 
+    /**
+     * get function to return the location
+     * @return location
+     */
     public String getLocation() {
         return location;
     }
 
+    /**
+     * get function to return the price
+     * @return price
+     */
     public float getPrice() {
         return price;
     }
-    //Pnum is the number of the player that can play in the playground
 
+    /**
+     * get function to return player number
+     * @return
+     */
     public int getPnum() {
         return Pnum;
     }
 
+    /**
+     * set function to set the booking id
+     * @param bookingID
+     */
     public void setBookingID(double bookingID) {
         BookingID = bookingID;
     }
 
+    /**
+     * gvet function to get the booking id
+     * @return
+     */
     public double getBookingID() {
         return BookingID;
     }
-    // the booking main function that will be used in GoFo class
+
+    /**
+     * the main method that will be used in the GoFo class
+     * @param pl
+     */
 
     public void addBooking(player pl){
         Booking b=new Booking();
@@ -110,10 +164,8 @@ public class Booking {
         b.setPrice(price);
         System.out.println("============================");
         for(int i=0;i<p.playgrounds.size();i++){
-            //check if the price and location are equal to the price and the location of the playgrounds that store in the data base ده لو عاملين داتا بيز يعني
             if(b.getPrice()==p.getPric() &&b.getLocation()==p.getLocation() &&b.getPnum()==p.getPlayer_num()){
                 p.display();
-                //using math.random to crate a random unique ID for the booking
                 double ID=Math.random();
                 System.out.println("Booking ID: "+ID);
                 b.setBookingID(ID);
